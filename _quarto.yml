@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - coding-guidelines/llms.txt
+
+website:
+  title: "ADAMO Lab Docs"
+  repo-url: https://github.com/ADAMO-Lab/lab-documentation
+  repo-actions: [edit, issue]
+  page-navigation: true
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    left:
+      - text: Coding Guidelines
+        href: coding-guidelines/index.qmd
+      - text: AI Models
+        href: ai-models/index.qmd
+      - text: Behavior Experiments
+        href: behavior-experiments/index.qmd
+      - text: Datasets
+        href: datasets/index.qmd
+      - text: EEG & Eye Tracking
+        href: eeg-eyetracking/index.qmd
+      - text: HPC
+        href: hpc/index.qmd
+    right:
+      - text: Contributing
+        href: contributing.qmd
+  # One sidebar per section; Quarto shows the sidebar that contains the current page.
+  # `contents: <dir>` lists every .qmd/.md in that folder, ordered by the `order:` field.
+  sidebar:
+    - id: coding-guidelines
+      title: Coding Guidelines
+      contents: coding-guidelines
+    - id: ai-models
+      title: AI Models
+      contents: ai-models
+    - id: behavior-experiments
+      title: Behavior Experiments
+      contents: behavior-experiments
+    - id: datasets
+      title: Datasets
+      contents: datasets
+    - id: eeg-eyetracking
+      title: EEG & Eye Tracking
+      contents: eeg-eyetracking
+    - id: hpc
+      title: HPC
+      contents: hpc
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+
+# Code cells run on the author's machine; CI reuses the committed _freeze/ results.
+execute:
+  freeze: auto

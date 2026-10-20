@@ -1,0 +1,31 @@
+---
+title: "Experiment name"
+order: 10
+---
+
+## Summary
+
+The question the task answers, in one or two sentences.
+
+## Details
+
+| | |
+|---|---|
+| Platform | PsychoPy, psiTurk, Unity, ... |
+| Code repository | |
+| IRB protocol | Protocol number only |
+| Session length | |
+| Output data | Link to the [dataset page](../datasets/index.qmd) |
+| Maintainer | |
+
+## Design
+
+Conditions, number of trials, counterbalancing, randomization (and the seed).
+
+## Running a session
+
+1. Before the participant arrives:
+2. Start the task:
+3. After the session (where the data files go):
+
+## Known issues

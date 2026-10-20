@@ -1,0 +1,8 @@
+---
+title: "AI Models"
+order: 0
+---
+
+One page per model the lab trains, fine-tunes, or depends on. Each page is a model card: what the model does, what it was trained on, where the weights live, and how to run it.
+
+To add a model, copy `ai-models/_template.qmd`.

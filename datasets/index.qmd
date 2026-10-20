@@ -1,0 +1,10 @@
+---
+title: "Datasets"
+order: 0
+---
+
+One page per dataset the lab collects or uses. Each page is a dataset card: what the data holds, where it lives, who can access it, and how far it has been processed.
+
+Never put participant data in this repository. Link to where the data lives.
+
+To add a dataset, copy `datasets/_template.qmd`.

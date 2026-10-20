@@ -1,0 +1,15 @@
+---
+title: "Collaboration & Handover"
+order: 7
+---
+
+### H1 — Leaving-the-lab checklist
+
+Most lost work traces to a departure. Before anyone leaves: push the code, pin the environment, document where the data lives, and update the README. The alternative is a low bus factor and a scramble after they are gone.
+
+```
+[ ] code pushed to origin
+[ ] environment.yml committed
+[ ] data location in README
+[ ] README run steps current
+```

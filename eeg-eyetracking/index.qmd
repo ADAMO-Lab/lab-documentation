@@ -1,0 +1,8 @@
+---
+title: "EEG & Eye Tracking"
+order: 0
+---
+
+Hardware setup, recording procedures, and synchronization for the lab's EEG and eye-tracking equipment.
+
+To add a setup or procedure page, copy `eeg-eyetracking/_template.qmd`.

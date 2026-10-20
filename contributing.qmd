@@ -1,0 +1,35 @@
+---
+title: "Contributing"
+---
+
+## Add a page
+
+1. Open the section folder (for example `datasets/`).
+2. Copy that section's `_template.qmd` to a new file. Name it with lowercase words joined by hyphens, for example `eye-tracking-2026.qmd`.
+3. Fill in the template. Delete any heading that does not apply.
+4. Preview locally (see below), then open a pull request.
+
+The page appears in the section's sidebar on its own. Set `order:` in the front matter to change its position.
+
+Files whose name starts with `_` (such as the templates) are not published.
+
+## Preview locally
+
+Install [Quarto](https://quarto.org/docs/get-started/), then run from the repository root:
+
+```bash
+quarto preview
+```
+
+## Pages with code
+
+Plain Markdown pages need nothing else. If a page runs R or Python code:
+
+- Render it on your own machine with `quarto render path/to/page.qmd`, then commit the `_freeze/` folder that Quarto updates. CI reuses those results and does not rerun your code.
+- Code that needs the cluster or large data cannot run in CI. Freeze it as above, or show it without running it by setting `eval: false` on the cell.
+
+## Do not commit
+
+- Passwords, tokens, or private keys.
+- Participant data or anything that identifies a participant.
+- Large data files. Link to where the data lives instead.

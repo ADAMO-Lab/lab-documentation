@@ -1,0 +1,23 @@
+---
+title: "Coding Guidelines"
+order: 0
+---
+
+The lab's coding and data management rules. 33 rules were adopted by lab vote on 2026-07-08. Each rule has an ID (S1, V3, ...). Cite the ID when you apply a rule or flag a problem.
+
+- [Repository & Project Structure](repository-project-structure.qmd)
+- [Version Control](version-control.qmd)
+- [Environments & Reproducibility](environments-reproducibility.qmd)
+- [Coding Conventions](coding-conventions.qmd)
+- [Naming Conventions](naming-conventions.qmd)
+- [Data Management](data-management.qmd)
+- [Collaboration & Handover](collaboration-handover.qmd)
+- [Not adopted](not-adopted.qmd)
+
+## Download
+
+- [All rules in one Markdown file (`llms.txt`)](llms.txt), for AI coding agents to read
+
+::: {.callout-note}
+These pages are generated from the voting sources (`gen.py`, `book.py`, `votes.json`). To change a rule, change it there, run `book.py`, then `scripts/port_guidelines.py`. Do not edit these pages directly.
+:::

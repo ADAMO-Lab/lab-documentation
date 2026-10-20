@@ -1,0 +1,8 @@
+---
+title: "Behavior Experiments"
+order: 0
+---
+
+One page per behavioral task: the design, the stimuli, the code, and how to run a session.
+
+To add an experiment, copy `behavior-experiments/_template.qmd`.

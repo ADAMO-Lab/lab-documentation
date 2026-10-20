@@ -1,0 +1,45 @@
+---
+title: "Setup or procedure name"
+order: 10
+---
+
+## Summary
+
+What this page lets you do, for example "record EEG and eye tracking together in room X".
+
+## Equipment
+
+| Item | Model | Notes |
+|---|---|---|
+| | | |
+
+## Software
+
+Recording software and version, drivers, and the settings file to load.
+
+## Before the participant arrives
+
+- [ ]
+- [ ]
+
+## Setup
+
+1.
+
+## Calibration and checks
+
+How to tell that the signal is good: impedance thresholds, eye-tracker calibration error, and so on.
+
+## Synchronization
+
+How event markers or triggers reach each recording, and how to check that they line up.
+
+## After the session
+
+Where the files go, and how to shut down and clean the equipment.
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| | |

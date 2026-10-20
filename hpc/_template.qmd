@@ -1,0 +1,44 @@
+---
+title: "Task name"
+order: 10
+---
+
+## Summary
+
+What this recipe does, for example "train a PyTorch model on one GPU".
+
+## Prerequisites
+
+Account, allocation or group, modules or environment, and data location.
+
+## Job script
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=
+#SBATCH --account=
+#SBATCH --partition=
+#SBATCH --time=
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=
+#SBATCH --mem=
+#SBATCH --output=%x-%j.out
+
+# load environment
+
+# run
+```
+
+## Submit and monitor
+
+```bash
+sbatch job.slurm
+squeue -u $USER
+```
+
+## Common problems
+
+| Symptom | Fix |
+|---|---|
+| | |

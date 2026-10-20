@@ -1,0 +1,61 @@
+---
+title: "Coding Conventions"
+order: 4
+---
+
+### C1 — Auto-formatter per language
+
+No human should format code. Hand formatting to a tool so nobody burns a review comment on whitespace. Consistent style also keeps diffs focused on real changes instead of reflows.
+
+```bash
+black src/                          # Python
+Rscript -e 'styler::style_dir("R")'  # R
+shfmt -w scripts/                   # Shell
+```
+
+### C2 — Descriptive names beat comments that explain bad names
+
+A good name never goes stale. subject_reaction_times explains itself. srt needs a comment, and that comment drifts from the code the moment someone edits nearby.
+
+```python
+# bad
+srt = df[df.srt > 0.1]
+# good
+valid = trials[trials.reaction_time > 0.1]
+```
+
+### C3 — No hard-coded absolute paths
+
+/Users/alice/ breaks for everyone else. Absolute paths fail the instant a second person runs the code. Use relative paths or one path variable at the top so the project moves between machines.
+
+```python
+# bad
+df = pd.read_csv("/Users/alice/data/rt.csv")
+# good
+from pathlib import Path
+DATA = Path(__file__).parent / "data"
+df = pd.read_csv(DATA / "rt.csv")
+```
+
+### C4 — Functions for anything used more than twice
+
+Fix it once, not in five places. Copy, paste, tweak, and now four near-copies drift apart. Pull anything you write a third time into one function so a fix lands everywhere at once.
+
+```python
+def zscore(x):
+    return (x - x.mean()) / x.std()
+
+rt_z  = zscore(df.rt)
+amp_z = zscore(df.amp)
+```
+
+### C5 — Config at the top, not scattered
+
+Changing a run should take one edit. Keep parameters, paths, and thresholds in one block or file instead of sprinkled through the code. Tuning an experiment then means editing one spot.
+
+```python
+# config.py
+RAW    = "data/raw.csv"
+RT_MIN = 0.1
+N_BOOT = 10_000
+```

@@ -1,0 +1,32 @@
+---
+title: "Model name"
+order: 10
+---
+
+## Summary
+
+One or two sentences: what the model predicts, and from what input.
+
+## Details
+
+| | |
+|---|---|
+| Architecture | |
+| Framework and version | |
+| Training data | Link to the [dataset page](../datasets/index.qmd) |
+| Code repository | |
+| Weights location | Path on cluster storage, or the Hugging Face model ID |
+| Maintainer | |
+| Last updated | YYYY-MM-DD |
+
+## How to run
+
+```bash
+# minimal command that loads the weights and runs one prediction
+```
+
+## Evaluation
+
+Metric, split, and score. Say which result this reproduces.
+
+## Known limitations

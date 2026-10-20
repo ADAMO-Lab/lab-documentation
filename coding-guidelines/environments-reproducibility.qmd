@@ -1,0 +1,49 @@
+---
+title: "Environments & Reproducibility"
+order: 3
+---
+
+### E1 — Every project pins its environment
+
+'Works on my machine' is not a result. Record exact package versions so the analysis runs the same next year and on a colleague's laptop. Leave the environment unpinned and it drifts until the numbers stop matching.
+
+```yaml
+# environment.yml
+name: saccade
+dependencies:
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=2.2.1
+```
+
+### E2 — One command reproduces the main result
+
+Untested reproducibility is a guess. Wire the pipeline behind a single entry point: a Makefile, a script, or a workflow. If rerunning the analysis needs tribal knowledge, it does not reproduce.
+
+```makefile
+all: results/fig1.pdf
+
+results/fig1.pdf: src/plot.py data/clean.csv
+	python src/plot.py
+```
+
+### E3 — Set and record a random seed
+
+Same input should give the same figure. Fix and log the seed wherever randomness touches results: splits, initialization, sampling. Skip it and two identical runs disagree, and you cannot tell signal from noise.
+
+```python
+import numpy as np, torch
+SEED = 42
+np.random.seed(SEED)
+torch.manual_seed(SEED)
+```
+
+### E4 — Scripts or clean notebooks for published results
+
+Out-of-order cells lie. Explore in notebooks, but generate any published number from a script or a notebook that runs top to bottom without error. Hidden execution order is where mistakes hide.
+
+```bash
+# run a notebook top-to-bottom, no manual state
+jupyter nbconvert --to notebook --execute \
+  --output out.ipynb analysis.ipynb
+```

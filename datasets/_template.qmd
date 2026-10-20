@@ -1,0 +1,36 @@
+---
+title: "Dataset name"
+order: 10
+---
+
+## Summary
+
+What was recorded, from whom, and why.
+
+## Details
+
+| | |
+|---|---|
+| Modality | Behavior, EEG, eye tracking, fMRI, ... |
+| Participants | N, population |
+| Collected | YYYY-MM to YYYY-MM |
+| Collected with | Link to the [experiment page](../behavior-experiments/index.qmd) |
+| Location | Storage path. No credentials. |
+| Size | |
+| Format | BIDS, CSV, EDF, ... |
+| Access | Who may use it, and how to request access |
+| Maintainer | |
+
+## Folder layout
+
+```
+dataset-name/
+├── raw/
+└── derivatives/
+```
+
+## Processing state
+
+What has been done to the data (cleaning, exclusions, preprocessing), with a link to the code for each step.
+
+## Known issues

@@ -1,0 +1,16 @@
+---
+title: "ADAMO Lab Documentation"
+---
+
+Shared documentation for the ADAMO Lab. Pick a section:
+
+| Section | What lives there |
+|---|---|
+| [Coding Guidelines](coding-guidelines/index.qmd) | The lab's adopted coding and data management rules |
+| [AI Models](ai-models/index.qmd) | Model cards: what each model does, where the weights live, how to run it |
+| [Behavior Experiments](behavior-experiments/index.qmd) | Task protocols: design, stimuli, code, running a session |
+| [Datasets](datasets/index.qmd) | Dataset cards: contents, location, access, preprocessing state |
+| [EEG & Eye Tracking](eeg-eyetracking/index.qmd) | Hardware setup, recording procedures, synchronization |
+| [HPC](hpc/index.qmd) | Cluster access, storage, Slurm job recipes |
+
+To add or fix a page, see [Contributing](contributing.qmd).

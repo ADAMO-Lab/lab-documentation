@@ -1,0 +1,52 @@
+---
+title: "Repository & Project Structure"
+order: 1
+---
+
+### S1 — One repo per project, not per person
+
+The work survives the author leaving. Code belongs to the project, not to whoever wrote it. When someone graduates, their scripts stay findable and runnable instead of disappearing onto a personal laptop.
+
+```
+adamolab/                  # one GitHub org
+├── reaction-time-study/   # one repo per project
+├── eye-tracking-2026/
+└── saccade-model/
+```
+
+### S2 — Standard top-level layout
+
+You find things without asking anyone. Give every repo the same skeleton: README, data/, src/, results/, and an environment lock. Open any project and you know where the code, data pointers, and outputs live.
+
+```
+saccade-model/
+├── README.md
+├── data/            # or a pointer to storage
+├── src/
+├── results/
+└── environment.yml
+```
+
+### S3 — No data committed to git
+
+Git chokes on large binaries. Git diffs text well and binaries badly. Commit a few gigabytes and clones crawl, history bloats, and you cannot rewind. Keep data in real storage and version it with a tool built for the job.
+
+```bash
+# .gitignore
+data/
+*.h5
+
+# version data with DVC instead of git
+dvc add data/raw.h5
+```
+
+### S4 — README answers three questions
+
+New members onboard without you. Cover what the project is, how to set up the environment, and how to run it end to end. A newcomer should reach a first result without messaging you.
+
+```markdown
+# Saccade Model
+**What:** fits saccade latency from eye-tracking data.
+**Setup:** `conda env create -f environment.yml`
+**Run:** `make all`
+```

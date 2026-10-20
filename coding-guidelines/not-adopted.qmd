@@ -1,0 +1,14 @@
+---
+title: "Not adopted"
+order: 8
+---
+
+These were proposed and vetoed. Do not enforce them, and do not present them as lab policy.
+
+- **V2 — Commit messages say why, not just what** (vetoed): git log is your real lab notebook.
+- **N3 — MATLAB identifiers follow MathWorks style** (vetoed): The file name must match the function.
+- **N13 — Data files use the fielded convention** (vetoed): Sort by date, glob by field.
+- **D1 — Raw data is read-only, never edited in place** (vetoed): You cannot un-overwrite raw data.
+- **D4 — Single source of truth for storage** (vetoed): No more 'which copy is current?'
+- **D6 — Provenance link from result to data and code** (vetoed): A reviewer will ask two years later.
+- **H2 — Code review for shared or published pipelines** (vetoed): Cheap insurance where it counts.

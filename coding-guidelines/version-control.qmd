@@ -1,0 +1,35 @@
+---
+title: "Version Control"
+order: 2
+---
+
+### V1 — All project code under git
+
+The throwaway script made a figure. The one-off that produced Figure 3 is the one you need again for the revision. Track everything from the first commit. It costs nothing and saves the panic later.
+
+```bash
+git init
+git add analysis.py figures.R
+git commit -m "Initial analysis pipeline"
+```
+
+### V3 — Main branch always runs
+
+A colleague may pull at any moment. Keep main runnable at all times. Do risky work on a branch and merge only once it passes. Whoever pulls next inherits working code, not your half-finished state.
+
+```bash
+git switch -c fix-outlier-filter
+# ...work, run tests...
+git switch main
+git merge fix-outlier-filter   # only once green
+```
+
+### V4 — Shared remote org, not personal accounts
+
+Access outlives any one person. Host repos under a lab organization instead of a personal account. Permissions and continuity then survive graduations, and nobody chases a former student for admin rights.
+
+```bash
+# lab org remote, not a personal account
+git remote add origin \
+  git@github.com:adamolab/saccade-model.git
+```

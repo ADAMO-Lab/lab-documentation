@@ -1,0 +1,43 @@
+name: Render and publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      # Pages with code reuse the committed _freeze/ results, so no R/Python setup is needed here.
+      - run: quarto render
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  # Publishing is off until the repo variable PUBLISH_PAGES is set to "true"
+  # (Settings → Secrets and variables → Actions → Variables) and
+  # Settings → Pages → Source is set to "GitHub Actions".
+  deploy:
+    needs: render
+    if: github.event_name != 'pull_request' && vars.PUBLISH_PAGES == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,44 @@
+---
+title: "Data Management"
+order: 6
+---
+
+### D2 — Consistent, sortable file naming
+
+final_final2 is where projects die. Name files so machines can read them: ISO dates, no spaces, zero-padded versions. They then sort correctly and a script can glob them.
+
+```
+2026-07-08_s01_congruent_v02.csv
+2026-07-08_s02_incongruent_v02.csv
+# not:  final data (2)!!.csv
+```
+
+### D3 — Every dataset has a data dictionary
+
+Data without metadata turns to noise. Ship a description of each field with the data: meaning, units, collection date, and who collected it. Skip it and your own spreadsheet baffles you within a year.
+
+```
+# data_dictionary.md
+rt        Reaction time, seconds
+accuracy  1 = correct, 0 = error
+subject   Anonymized ID (s01..s40)
+```
+
+### D5 — 3-2-1 backup for irreplaceable raw data
+
+Irreplaceable means irreplaceable. Keep three copies, on two kinds of media, with one off-site. Data you cannot recollect earns at least a primary plus one automated backup.
+
+```
+copy 1  /mnt/labshare/saccade     primary
+copy 2  external HDD              weekly rsync
+copy 3  institutional cloud      offsite
+```
+
+### D7 — Sensitive data documented and access-controlled
+
+Law and ethics require it. De-identify personal data where you can, lock down access where you cannot, and write down how you handle it.
+
+```bash
+python deidentify.py raw/ -o safe/
+chmod 700 safe/            # owner-only access
+```

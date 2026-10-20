@@ -1,0 +1,122 @@
+---
+title: "Naming Conventions"
+order: 5
+---
+
+### N1 — Python identifiers follow PEP 8
+
+The linter and every reader expect it. snake_case for variables, functions, and modules. PascalCase for classes. UPPER_SNAKE_CASE for constants.
+
+```python
+rt_min = 0.1                 # variable: snake_case
+RT_MAX = 2.0                 # constant: UPPER_SNAKE
+def clean_trials(raw): ...   # function: snake_case
+class SaccadeModel: ...      # class: PascalCase
+```
+
+### N2 — R identifiers follow the tidyverse style
+
+A dot means an S3 method, so avoid dots. snake_case for variables and functions. Skip dots in new names. PascalCase for R6 and S4 classes.
+
+```r
+rt_min <- 0.1                       # snake_case
+clean_trials <- function(raw) { }   # snake_case
+# avoid: clean.trials  (dot = S3 method)
+```
+
+### N4 — Shell: snake_case locals, UPPER_SNAKE exported
+
+Hyphens are illegal in shell variable names. Local variables and functions use snake_case. Environment and exported variables use UPPER_SNAKE_CASE.
+
+```bash
+DATA_ROOT=/mnt/labshare      # exported: UPPER_SNAKE
+clean_trials() {             # function: snake_case
+  local raw_file="$1"        # local: snake_case
+}
+```
+
+### N5 — Constants and classes are cross-language
+
+Keep the shouted categories recognizable. Constants and environment variables are UPPER_SNAKE_CASE in every language. Classes and types are PascalCase in every language.
+
+```
+UPPER_SNAKE_CASE   constants, env vars   (all languages)
+PascalCase         classes, types        (all languages)
+```
+
+### N6 — Filesystem names are lowercase
+
+Data/ and data/ collide across machines. Lowercase every file and directory name. Linux sees two folders where macOS sees one, and that gap corrupts a shared repo.
+
+```bash
+mkdir raw-data        # good
+mkdir Raw_Data        # collides on case-insensitive macOS
+```
+
+### N7 — No spaces in names
+
+Spaces force quoting and break scripts. Use a hyphen or underscore instead of a space in any file or directory name.
+
+```
+eye-tracking-data.csv     # good
+eye tracking data.csv     # needs quoting everywhere
+```
+
+### N8 — Restrict names to a-z 0-9 - _ .
+
+Other characters are illegal or shell-special. Colons and backslashes are illegal on Windows. The characters & * ? ! carry shell meaning. A leading hyphen looks like a command flag.
+
+```
+s01_congruent_v02.csv     # good
+s01:congruent (2)!.csv    # illegal on Windows, shell-hostile
+```
+
+### N9 — Avoid reserved names, keep paths short
+
+Windows chokes on con, nul, and long paths. Never name a file con, prn, aux, nul, com1, or lpt1. Keep total path length well under 260 characters.
+
+```
+reserved on Windows: con prn aux nul com1..com9 lpt1..lpt9
+keep the full path under 260 characters
+```
+
+### N10 — Repositories and branches use kebab-case
+
+Matches GitHub, URLs, and the ecosystem. Name repositories and git branches in lowercase kebab-case.
+
+```bash
+adamolab/eye-tracking-2026         # repo
+git switch -c fix-outlier-filter   # branch
+```
+
+### N11 — Directories use kebab-case
+
+Readable in a URL and a terminal. Name directories in lowercase kebab-case.
+
+```
+saccade-model/
+├── raw-data/
+├── figure-scripts/
+└── clean-output/
+```
+
+### N12 — Script files follow language import rules
+
+Python cannot import a hyphenated module. Python and R modules use snake_case so they stay importable. Standalone shell tools use kebab-case, matching how you type the command.
+
+```
+data_cleaning.py     # Python module, importable
+clean_data.R         # R script
+run-analysis.sh      # shell tool, a CLI command
+```
+
+### N14 — Config keys use snake_case
+
+They map straight onto code variables. Keys in YAML, TOML, or JSON use snake_case so they line up with the Python and R variables that read them.
+
+```yaml
+# config.yml
+rt_min: 0.1
+n_boot: 10000
+data_root: /mnt/labshare
+```
