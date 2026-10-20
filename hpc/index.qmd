@@ -8,3 +8,5 @@ How to use the cluster: getting an account, storage, software environments, and 
 Never put passwords, tokens, or private keys on these pages.
 
 To add a page, copy `hpc/_template.qmd`.
+
+- [Basic Usage](basic-usage.qmd)
