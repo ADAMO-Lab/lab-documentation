@@ -7,4 +7,10 @@ One page per dataset the lab collects or uses. Each page is a dataset card: what
 
 Never put participant data in this repository. Link to where the data lives.
 
+## Overview
+
+| Collection | What it holds |
+|---|---|
+| [Breast imaging datasets](breast-imaging.qmd) | Nine public mammography datasets (EMBED, VinDr-Mammo, M-SYNTH, CMMD, and others): size of our copy, source, and labels |
+
 To add a dataset, copy `datasets/_template.qmd`.
