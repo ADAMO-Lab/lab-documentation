@@ -1,0 +1,25 @@
+---
+title: "Breast imaging datasets"
+order: 0
+---
+
+This page lists the breast imaging datasets that we keep locally. Each entry
+gives the source, the size of our copy, and the labels that it has. The
+counts are for our copy, which can be a subset of the published dataset.
+Each dataset has its own page with an example breast and its labels.
+
+| Dataset | Images | Source | Labels |
+|---|---|---|---|
+| [EMBED (subset)](embed.qmd) | 27,438 | Emory University, USA | Density, BI-RADS, pathology, lesion boxes |
+| [VinDr-Mammo](vindr-mammo.qmd) | 20,000 | Two hospitals, Vietnam | Density, BI-RADS, finding boxes |
+| [M-SYNTH](msynth.qmd) | 14,760 | FDA VICTRE simulation | Density, lesion truth and position |
+| [CMMD](cmmd.qmd) | 5,202 | China | Benign or malignant, molecular subtype |
+| [TOMPEI-CMMD](tompei-cmmd.qmd) | 1,385 annotations | Annotations for CMMD | Lesion outlines |
+| [CBIS-DDSM (mass)](cbis-ddsm.qmd) | 1,592 | Scanned film, USA | BI-RADS, pathology, mass masks |
+| [CDD-CESM](cdd-cesm.qmd) | 1,004 | Egypt | BI-RADS, lesion outlines, reports |
+| [DMID](dmid.qmd) | 510 | India | Lesion masks, reports |
+| [INbreast](inbreast.qmd) | 412 | Porto, Portugal | Density, BI-RADS, lesion outlines |
+
+EMBED, VinDr-Mammo and INbreast do not allow their images to be
+redistributed, so their pages show a schematic of the label types instead of
+a real image. The figures are made by `scripts/make_dataset_figures.py`.
