@@ -1,0 +1,67 @@
+# About
+
+The High Performance Cluster (HPC) is the UoA is basically a big server of networked computers that can leveraged by anyone in the university so crunch numbers when your laptop won't cut it anymore. You can run multiple programs in parallel taking advantage of multiple GPUs when generating artificial mammograms or training neural networks for example.
+
+For more info check out their own documentation:
+https://hpcdocs.hpc.arizona.edu/
+
+> UArizona HPC systems are available to all university faculty, staff, undergraduate and graduate students, postdocs, and designated campus colleagues (DCCs) at no cost. Researchers have access to [compute resources on our three clusters](https://hpcdocs.hpc.arizona.edu/resources/compute_resources/) Puma, Ocelote, and El Gato located in our data center. Presently each research group is provided with a [free standard monthly allocation](https://hpcdocs.hpc.arizona.edu/resources/allocations/) on each: 100,000 CPU-hours on Puma, 70,000 CPU-hours on Ocelote, and 7,000 CPU-hours on El Gato.
+
+# How to Use
+## Log in to the HPC
+```shell
+ssh [USERNAME]@hpc.arizona.edu
+```
+## Copy a file to the HPC
+- Example of copying a file from your local user area to your user area on the HPC:
+```shell
+scp ~/name_of_file [USERNAME]@filexfer.hpc.arizona.edu:~
+
+rsync -r --progress [SOURCE] USERNAME@filexfer.hpc.arizona.edu:~
+```
+## Download a file
+```
+scp [USERNAME]@filexfer.hpc.arizona.edu:/name_of_file path/to/local/destination/
+```
+## Setup a Conda/Mamba environment
+```
+# Start an Interactive Session
+
+elgato # the cluster that has the most available nodes
+interactive -a Adamolab
+
+module load micromamba
+micromamba create --name NAMEOFENV --file requirements.txt
+micromamba activate NAMEOFENV
+```
+- FOR A LIST OF ARGUMENTS: https://hpcdocs.hpc.arizona.edu/running_jobs/interactive_jobs/#the-interactive-command
+- Example:
+```
+interactive -a adamolab -t 2:00:00 -n 16 -m 5gb
+```
+- To end interactive session: 
+```
+exit
+```
+
+## Remote Connections
+- To remote connect within IDE (like VSCode), follow the instructions found at this page: https://hpcdocs.hpc.arizona.edu/software/popular_software/vscode_remote_connection/#specifics-with-example 
+### Remote connect with Pycharm
+- Connect to VPN
+	- HPC VPN Bastion network
+	- vpn.hpc.arizona.edu
+- File > Remote Development > New Connection
+- Start up an interactive session in the terminal
+- Use the specific address for that session
+	- (e.g. rakusenl@r6u24n2.puma.hpc.arizona.edu)
+- rakusenl@r6u20n1.puma.hpc.arizona.edu
+- Click check connection and continue
+- pick /home/u17/rakusenl (if you're me) for Project directory
+- Start IDE and connect
+- Put in HPC password
+- Be very patient and resist the urge to just open files in vim
+
+# Author
+Sir Lyndon Rakusen I
+Dr. Brandon Eich
+
